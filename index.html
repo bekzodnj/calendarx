@@ -13,6 +13,11 @@
   <body>
     <div class="calendar-wrapper">
       <h3 class="header-monthAndYear"></h3>
+      <div class="buttons-container">
+        <button class="btn-general btn-prev" onclick="prev()">Previous</button>
+        <button class="btn-general btn-next" onclick="next()">Next</button>
+      </div>
+
       <table border="1" class="calendar-head">
         <thead>
           <tr>
@@ -27,11 +32,6 @@
         </thead>
         <tbody class="calendar-body"></tbody>
       </table>
-
-      <div class="buttons-container">
-        <button class="btn-general btn-prev">Previous</button>
-        <button class="btn-general btn-next">Next</button>
-      </div>
 
       <div class="calendar-inputs">
         <form class="form-inline">
@@ -100,6 +100,10 @@
             <option value="2029">2029</option>
             <option value="2030">2030</option>
           </select>
+
+          <button class="btn-general btn-prev" onclick="jumpToToday()">
+            Today
+          </button>
         </form>
       </div>
     </div>
