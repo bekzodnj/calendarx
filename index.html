@@ -29,15 +29,15 @@
       </table>
 
       <div class="buttons-container">
-        <button class="btn-general">Previous</button>
-        <button class="btn-general">Next</button>
+        <button class="btn-general btn-prev">Previous</button>
+        <button class="btn-general btn-next">Next</button>
       </div>
 
       <div class="calendar-inputs">
         <form class="form-inline">
           <label class="lead mr-2 ml-2" for="month">Jump To: </label>
           <select
-            class="form-control col-sm-4"
+            class="select-month"
             name="month"
             id="month"
             onchange="jump();"
@@ -57,12 +57,7 @@
           </select>
 
           <label for="year"></label
-          ><select
-            class="form-control col-sm-4"
-            name="year"
-            id="year"
-            onchange="jump()"
-          >
+          ><select class="select-year" name="year" id="year" onchange="jump()">
             <option value="1990">1990</option>
             <option value="1991">1991</option>
             <option value="1992">1992</option>
