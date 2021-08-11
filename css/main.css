@@ -4,8 +4,32 @@
   box-sizing: border-box;
 }
 
+/* Table reset to default */
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+td,
+th {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
 table {
-  border: 1px solid #000;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .bg-accent {
