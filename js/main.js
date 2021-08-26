@@ -1,8 +1,8 @@
 /* DOM variables */
-const HEADER_MONTH_AND_YEAR = document.querySelector('.header-monthAndYear'),
-  TABLE_BODY = document.querySelector('.calendar-body'),
-  SELECT_MONTH = document.querySelector('.select-month'),
-  SELECT_YEAR = document.querySelector('.select-year');
+const $HEADER_MONTH_AND_YEAR = document.querySelector('.header-monthAndYear'),
+  $TABLE_BODY = document.querySelector('.calendar-body-table'),
+  $SELECT_MONTH = document.querySelector('.select-month'),
+  $SELECT_YEAR = document.querySelector('.select-year');
 
 /* Date variables */
 var TODAY = new Date(),
@@ -24,25 +24,33 @@ const MONTHS_LIST = [
   'Dec',
 ];
 
+function showCalendar() {
+  var t0 = performance.now();
+  _showCalendar(CURRENT_MONTH, CURRENT_YEAR);
+  var t1 = performance.now();
+
+  //console.log('Calendar is drawn in ' + (t1 - t0) / 1000 + ' seconds.');
+}
+
 showCalendar(CURRENT_MONTH, CURRENT_YEAR);
 
 /*
  *   Prepares table view for calendar
  *   @return {int}
  */
-function showCalendar(month, year) {
+function _showCalendar(month, year) {
   // clearing all previous cells
-  TABLE_BODY.innerHTML = '';
+  $TABLE_BODY.innerHTML = '';
 
   // settings the header and dropdown
-  HEADER_MONTH_AND_YEAR.innerHTML = MONTHS_LIST[month] + ' ' + year;
-  SELECT_YEAR.value = year;
-  SELECT_MONTH.value = month;
+  $HEADER_MONTH_AND_YEAR.innerHTML = MONTHS_LIST[month] + ' ' + year;
+  $SELECT_YEAR.value = year;
+  $SELECT_MONTH.value = month;
 
   // getDay() returns day of the week: 0-6
   let firstDayOfWeek = new Date(year, month).getDay();
 
-  // current day = 1 -> 31/30
+  // current day = 1 - 31/30
   let currDay = 1;
 
   // rows of the calendar (at max 6 rows)
@@ -79,7 +87,7 @@ function showCalendar(month, year) {
       }
     }
 
-    TABLE_BODY.appendChild(TABLE_ROW);
+    $TABLE_BODY.appendChild(TABLE_ROW);
   }
 }
 
@@ -98,8 +106,8 @@ function prev() {
 }
 
 function jump() {
-  CURRENT_YEAR = parseInt(SELECT_YEAR.value);
-  CURRENT_MONTH = parseInt(SELECT_MONTH.value);
+  CURRENT_YEAR = parseInt($SELECT_YEAR.value);
+  CURRENT_MONTH = parseInt($SELECT_MONTH.value);
 
   showCalendar(CURRENT_MONTH, CURRENT_YEAR);
 }
