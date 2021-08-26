@@ -40,3 +40,28 @@ td:hover {
   background-color: rgb(110, 236, 167);
   cursor: pointer;
 }
+
+/* Calendar using DIVS */
+.calendar-wrap {
+  margin: 2em 0;
+}
+.calendar-daysOfWeek {
+  display: flex;
+  border: 1px solid slateblue;
+}
+
+.calendar-daysOfWeek > div {
+  border: 1px solid slateblue;
+  flex: 0 1 calc(14%);
+  text-align: center;
+}
+.calendar-body {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid black;
+}
+
+.calendar-body > .day {
+  flex: 0 1 calc(14%);
+  border: 1px solid blue;
+}
